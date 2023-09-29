@@ -49,6 +49,7 @@ export const CoinsTable = () => {
   const [page, setPage] = useState(1);
   const { currency, symbol } = CryptoState();
   const { response } = useAxios(`coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`);
+  console.log(response)
   
 
   function numberWithCommas(x) {
@@ -114,7 +115,7 @@ export const CoinsTable = () => {
                       const profit = row.price_change_percentage_24h > 0;
                       return (
                         <TableRow
-                          onClick={() => history("/coins/${row.id}")}
+                          onClick={() => history(`/coins/${row.id}`)}
                           className={classes.row}
                           key={row.name}
                         >
